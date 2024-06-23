@@ -31,8 +31,8 @@ use windows::{
         self as win32wm, CreateWindowExW, DefWindowProcW, DestroyWindow, GetClientRect, GetParent,
         PostMessageW, RegisterClassExW, RegisterWindowMessageA, SetWindowPos, ShowWindow,
         CS_HREDRAW, CS_VREDRAW, CW_USEDEFAULT, HCURSOR, HICON, HMENU, HWND_BOTTOM,
-        SWP_ASYNCWINDOWPOS, SWP_NOACTIVATE, SWP_NOZORDER, SW_HIDE, SW_SHOW, WINDOW_EX_STYLE,
-        WNDCLASSEXW, WS_CHILD, WS_CLIPCHILDREN, WS_VISIBLE,
+        SWP_ASYNCWINDOWPOS, SWP_NOACTIVATE, SW_HIDE, SW_SHOW, WINDOW_EX_STYLE, WNDCLASSEXW,
+        WS_CHILD, WS_CLIPCHILDREN, WS_VISIBLE,
       },
     },
   },
@@ -1065,7 +1065,7 @@ impl InnerWebView {
           bounds.y,
           bounds.width as i32,
           bounds.height as i32,
-          SWP_ASYNCWINDOWPOS | SWP_NOACTIVATE | SWP_NOZORDER,
+          SWP_ASYNCWINDOWPOS | SWP_NOACTIVATE,
         );
       }
     }
