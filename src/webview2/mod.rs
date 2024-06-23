@@ -30,9 +30,9 @@ use windows::{
       WindowsAndMessaging::{
         self as win32wm, CreateWindowExW, DefWindowProcW, DestroyWindow, GetClientRect, GetParent,
         PostMessageW, RegisterClassExW, RegisterWindowMessageA, SetWindowPos, ShowWindow,
-        CS_HREDRAW, CS_VREDRAW, CW_USEDEFAULT, HCURSOR, HICON, HMENU, SWP_ASYNCWINDOWPOS,
-        SWP_NOACTIVATE, SWP_NOZORDER, SW_HIDE, SW_SHOW, WINDOW_EX_STYLE, WNDCLASSEXW, WS_CHILD,
-        WS_CLIPCHILDREN, WS_VISIBLE,
+        CS_HREDRAW, CS_VREDRAW, CW_USEDEFAULT, HCURSOR, HICON, HMENU, HWND_BOTTOM,
+        SWP_ASYNCWINDOWPOS, SWP_NOACTIVATE, SWP_NOZORDER, SW_HIDE, SW_SHOW, WINDOW_EX_STYLE,
+        WNDCLASSEXW, WS_CHILD, WS_CLIPCHILDREN, WS_VISIBLE,
       },
     },
   },
@@ -1060,7 +1060,7 @@ impl InnerWebView {
       unsafe {
         let _ = SetWindowPos(
           self.hwnd,
-          HWND::default(),
+          HWND_BOTTOM,
           bounds.x,
           bounds.y,
           bounds.width as i32,
